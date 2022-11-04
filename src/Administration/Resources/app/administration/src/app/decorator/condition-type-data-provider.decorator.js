@@ -14,6 +14,7 @@ Application.addServiceProviderDecorator('ruleConditionDataProviderService', (rul
                 'customerBillingZipCode',
                 'customerIsNewCustomer',
                 'customerCustomerGroup',
+                'customerCustomerRequestGroup',
                 'customerCustomerNumber',
                 'customerDaysSinceLastOrder',
                 'customerDifferentAddresses',
@@ -40,6 +41,7 @@ Application.addServiceProviderDecorator('ruleConditionDataProviderService', (rul
                 'customerBillingStreet',
                 'customerBillingZipCode',
                 'customerCustomerGroup',
+                'customerCustomerRequestGroup',
                 'customerCustomerNumber',
                 'customerDifferentAddresses',
                 'customerIsNewCustomer',
@@ -171,6 +173,12 @@ Application.addServiceProviderDecorator('ruleConditionDataProviderService', (rul
     ruleConditionService.addCondition('customerCustomerGroup', {
         component: isMajorFlagActive ? 'sw-condition-generic' : 'sw-condition-customer-group',
         label: 'global.sw-condition.condition.customerGroupRule',
+        scopes: ['checkout'],
+        group: 'customer',
+    });
+    ruleConditionService.addCondition('customerCustomerRequestGroup', {
+        component: isMajorFlagActive ? 'sw-condition-generic' : 'sw-condition-customer-request-group',
+        label: 'global.sw-condition.condition.customerRequestGroupRule',
         scopes: ['checkout'],
         group: 'customer',
     });

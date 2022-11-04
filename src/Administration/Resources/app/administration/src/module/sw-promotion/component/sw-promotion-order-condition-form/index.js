@@ -32,7 +32,7 @@ Component.register('sw-promotion-order-condition-form', {
                     'customerBillingStreet', 'customerBillingZipCode', 'customerCustomerGroup',
                     'customerCustomerNumber', 'customerDifferentAddresses', 'customerIsNewCustomer',
                     'customerLastName', 'customerShippingCountry', 'customerShippingStreet',
-                    'customerShippingZipCode',
+                    'customerShippingZipCode', 'customerCustomerRequestGroup'
                 ]),
                 Criteria.not('AND', [Criteria.equalsAny('conditions.type', ['cartCartAmount'])]),
             ]));

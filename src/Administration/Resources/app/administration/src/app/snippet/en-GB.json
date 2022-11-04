@@ -639,6 +639,7 @@
         "billingStreetRule": "Billing address: Street",
         "billingZipCodeRule": "Billing address: Postal code",
         "customerGroupRule": "Customer group",
+        "customerRequestGroupRule": "Requested customer group",
         "customerTagRule": "Customer with tag",
         "customerNumberRule": "Customer number",
         "differentAddressesRule": "Customer with deviating shipping address",

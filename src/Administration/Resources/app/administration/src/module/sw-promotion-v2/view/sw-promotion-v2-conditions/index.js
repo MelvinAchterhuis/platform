@@ -54,7 +54,7 @@ Component.register('sw-promotion-v2-conditions', {
                         'customerBillingCountry', 'customerBillingStreet', 'customerBillingZipCode', 'customerIsNewCustomer',
                         'customerCustomerGroup', 'customerCustomerNumber', 'customerDaysSinceLastOrder',
                         'customerDifferentAddresses', 'customerLastName', 'customerOrderCount', 'customerShippingCountry',
-                        'customerShippingStreet', 'customerShippingZipCode',
+                        'customerShippingStreet', 'customerShippingZipCode', 'customerCustomerRequestGroup'
                     ]),
                 ]));
             }
@@ -96,7 +96,7 @@ Component.register('sw-promotion-v2-conditions', {
                         'customerBillingStreet', 'customerBillingZipCode', 'customerCustomerGroup',
                         'customerCustomerNumber', 'customerDifferentAddresses', 'customerIsNewCustomer',
                         'customerLastName', 'customerShippingCountry', 'customerShippingStreet',
-                        'customerShippingZipCode',
+                        'customerShippingZipCode', 'customerCustomerRequestGroup'
                     ]),
                     Criteria.not('AND', [Criteria.equalsAny('conditions.type', ['cartCartAmount'])]),
                 ]));

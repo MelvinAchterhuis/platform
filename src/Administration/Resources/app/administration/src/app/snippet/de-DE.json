@@ -639,6 +639,7 @@
         "billingStreetRule": "Rechnungsadresse: Straße",
         "billingZipCodeRule": "Rechnungsadresse: Postleitzahl",
         "customerGroupRule": "Kundengruppe",
+        "customerRequestGroupRule": "Angeforderte Kundengruppe",
         "customerTagRule": "Kunde mit Tag",
         "customerNumberRule": "Kundennummer",
         "differentAddressesRule": "Kunde mit abweichender Lieferadresse",

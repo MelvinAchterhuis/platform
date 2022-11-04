@@ -49,7 +49,7 @@ Component.register('sw-promotion-persona-form', {
                     'customerBillingCountry', 'customerBillingStreet', 'customerBillingZipCode', 'customerIsNewCustomer',
                     'customerCustomerGroup', 'customerCustomerNumber', 'customerDaysSinceLastOrder',
                     'customerDifferentAddresses', 'customerLastName', 'customerOrderCount', 'customerShippingCountry',
-                    'customerShippingStreet', 'customerShippingZipCode',
+                    'customerShippingStreet', 'customerShippingZipCode', 'customerCustomerRequestGroup'
                 ]),
             ]));
 
