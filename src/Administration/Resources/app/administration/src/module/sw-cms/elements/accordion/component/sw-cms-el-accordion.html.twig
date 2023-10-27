@@ -1,0 +1,18 @@
+{% block sw_cms_element_accordion %}
+    <div class="sw-cms-el-accordion">
+        <div v-for="item in element.config.accordion.value" class="sw-cms-el-accordion--item">
+            <div class="sw-cms-el-accordion--item-header">
+                <div>
+                    {{ item.header }}
+                </div>
+                <sw-icon
+                    name="regular-chevron-down-xxs"
+                    size="10"
+                />
+            </div>
+        </div>
+        <sw-alert variant="info" v-if="element.config.accordion.value.length == 0">
+            No item added yet
+        </sw-alert>
+    </div>
+{% endblock %}

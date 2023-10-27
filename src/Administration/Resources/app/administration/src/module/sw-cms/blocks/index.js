@@ -4,6 +4,7 @@ import './text/text-teaser';
 import './text/text-teaser-section';
 import './text/text-two-column';
 import './text/text-three-column';
+import './text/text-accordion';
 
 import './image/image';
 import './image/image-cover';

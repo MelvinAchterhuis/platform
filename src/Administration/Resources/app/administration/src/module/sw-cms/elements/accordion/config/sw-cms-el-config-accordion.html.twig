@@ -1,0 +1,70 @@
+{% block sw_cms_element_accordion_config %}
+    <div>
+        <div class="sw-cms-el-accordion--collapse-group">
+            <sw-alert variant="info" v-if="items.length == 0">
+                No item added yet
+            </sw-alert>
+
+            <sw-collapse class="sw-cms-el-accordion--collapse"
+                         v-for="item in items">
+                <div class="sw-cms-el-accordion--collapse-header" slot="header">
+                    {{ item.header }}
+
+                    <sw-button-group>
+                        <sw-button
+                            size="small"
+                            :square="true"
+                            :disabled="item.position == 1" @click.stop="moveUp(item)"
+                        >
+                            <sw-icon
+                                name="regular-chevron-up-xxs"
+                                size="10"
+                            />
+                        </sw-button>
+                        <sw-button
+                            size="small"
+                            :square="true"
+                            :disabled="item.position == highestPosition"
+                            @click.stop="moveDown(item)"
+                        >
+                            <sw-icon
+                                name="regular-chevron-down-xxs"
+                                size="10"
+                            />
+                        </sw-button>
+                        <sw-button
+                            size="small"
+                            variant="danger"
+                            :square="true"
+                            @click.stop="removeItem(item)"
+                        >
+                            <sw-icon
+                                name="regular-trash"
+                                size="14"
+                            />
+                        </sw-button>
+                    </sw-button-group>
+                </div>
+                <div slot="content">
+                    <sw-text-field
+                        v-model="item.header"
+                        label="Header">
+                    </sw-text-field>
+                    <sw-text-editor
+                        v-model="item.body"
+                        label="Body">
+                    </sw-text-editor>
+                </div>
+            </sw-collapse>
+            <sw-switch-field
+                v-model="element.config.firstItemOpen.value"
+                label="First item open"
+                v-if="items.length > 0"
+            />
+        </div>
+        <sw-button
+            @click="addItem">
+            Add item
+        </sw-button>
+    </div>
+{% endblock %}

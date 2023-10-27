@@ -1,0 +1,29 @@
+@import "~scss/variables";
+
+.sw-cms-el-accordion--collapse-group {
+    margin-bottom: 16px;
+}
+
+.sw-cms-el-accordion--collapse {
+    border: 1px solid $color-gray-300;
+    &:not(:first-child) {
+        border-top: 0;
+    }
+
+    .sw-collapse__header {
+        background: $color-gray-50;
+        padding: 16px;
+        cursor: pointer;
+    }
+
+    .sw-collapse__content {
+        border-top: 1px solid $color-gray-300;
+        padding: 16px;
+    }
+
+    .sw-cms-el-accordion--collapse-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
