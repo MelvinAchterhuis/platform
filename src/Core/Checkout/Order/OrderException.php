@@ -24,6 +24,7 @@ class OrderException extends HttpException
     final public const ORDER_CUSTOMER_NOT_LOGGED_IN = 'CHECKOUT__ORDER_CUSTOMER_NOT_LOGGED_IN';
     final public const ORDER_CUSTOMER_ADDRESS_NOT_FOUND = 'CHECKOUT__ORDER_CUSTOMER_ADDRESS_NOT_FOUND';
     final public const ORDER_INVALID_ORDER_ADDRESS_MAPPING = 'CHECKOUT__INVALID_ORDER_ADDRESS_MAPPING';
+    final public const ORDER_ORDER_NOT_EDITABLE = 'CHECKOUT__ORDER_ORDER_NOT_EDITABLE';
 
     public static function missingAssociation(string $association): self
     {
@@ -157,6 +158,16 @@ class OrderException extends HttpException
             Response::HTTP_BAD_REQUEST,
             self::ORDER_INVALID_ORDER_ADDRESS_MAPPING,
             'Invalid order address mapping provided. ' . $reason,
+        );
+    }
+
+    public static function orderNotEditable(string $orderId): self
+    {
+        return new self(
+            Response::HTTP_BAD_REQUEST,
+            self::ORDER_ORDER_NOT_EDITABLE,
+            'Order with id {{ orderId }} is not editable.',
+            ['orderId' => $orderId]
         );
     }
 }

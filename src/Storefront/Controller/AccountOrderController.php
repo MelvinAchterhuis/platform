@@ -8,6 +8,7 @@ use Shopware\Core\Checkout\Order\Exception\GuestNotAuthenticatedException;
 use Shopware\Core\Checkout\Order\Exception\WrongGuestCredentialsException;
 use Shopware\Core\Checkout\Order\OrderEntity;
 use Shopware\Core\Checkout\Order\OrderException;
+use Shopware\Core\Checkout\Order\OrderStates;
 use Shopware\Core\Checkout\Order\SalesChannel\AbstractCancelOrderRoute;
 use Shopware\Core\Checkout\Order\SalesChannel\AbstractOrderRoute;
 use Shopware\Core\Checkout\Order\SalesChannel\AbstractSetPaymentOrderRoute;
@@ -148,6 +149,7 @@ class AccountOrderController extends StorefrontController
     public function editOrder(string $orderId, Request $request, SalesChannelContext $context): Response
     {
         $criteria = new Criteria([$orderId]);
+        $criteria->addAssociation('stateMachineState');
         $deliveriesCriteria = $criteria->getAssociation('deliveries');
         $deliveriesCriteria->addSorting(new FieldSorting('createdAt', FieldSorting::ASCENDING));
 
@@ -160,6 +162,12 @@ class AccountOrderController extends StorefrontController
 
         if ($order === null) {
             $this->addFlash(self::DANGER, $this->trans('error.' . OrderException::ORDER_ORDER_NOT_FOUND_CODE));
+
+            return $this->redirectToRoute('frontend.account.order.page');
+        }
+
+        if ($order->getStateMachineState()->getTechnicalName() === OrderStates::STATE_CANCELLED) {
+            $this->addFlash(self::DANGER, $this->trans('error.' . OrderException::ORDER_ORDER_NOT_EDITABLE, ['%orderNumber%' => $order->getOrderNumber()]));
 
             return $this->redirectToRoute('frontend.account.order.page');
         }
